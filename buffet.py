@@ -18,9 +18,30 @@ REQUIREMENTS:
 4. Print the final price formatted as currency and display any applicable daily special notices.
 -----------------------------------------------------------------------
 """
+# Ask for the day and normalize to lowercase
+day_of_week = input("Please enter the day of the week: ").lower()
+ # Set the child price per year using match/case
+match day_of_week:
+    case "tuesday":
+        child_price_per_year = 0.50
+    case "sunday":
+        child_price_per_year = 1.00
+        print("Drinks are free")
+    case _:
+        child_price_per_year = 1.00
+       # Use age 16 as requested (no input)
+age = 16
+# Determine the price using one if/elif/else chain
+if age < 1:
+    price = 0.00
+elif age <= 12:
+    price = age * child_price_per_year
+elif age <= 64:
+    price = 16.95
+else:
+    price = 12.95
 
-age = int(input("Please enter your age:"))
-day_of_week = input("Please enter the day of the week:")
-day_of_week = day_of_week.lower()
-# print(day_of_week)
+# Print the final price formatted as currency
+print(f"Your total is ${price:.2f}")
+#comment
 

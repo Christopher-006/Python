@@ -66,5 +66,5 @@ else:
     print(f"{host}: 'Interesting results. {contest} will return next week with new challenges.'")
 
 print("\nThanks for judging tonight's contest. See you at the next round!")
-#comment
+#comment you gave me an extension
 

@@ -1,3 +1,15 @@
+"""
+-----------------------------------------------------------------------
+ASSIGNMENT REQUIREMENTS
+-----------------------------------------------------------------------
+[ ] 1. Header Docstring included with assignment info.
+[ ] 2. ATM runs in a loop (using a state flag or while True) to remain awake.
+[ ] 3. Main menu uses match-case logic with a wildcard (case _) for selections.
+[ ] 4. Inputs are validated using try-except blocks to prevent crashes.
+[ ] 5. Logic prevents overdrafts and negative deposits.
+[ ] 6. All currency is formatted to two decimal places (:.2f).
+[ ] 7. Upload to GitHub and paste the link below.
+---------------
 balance = 1000.00
 
 print(" 1. View Balance")

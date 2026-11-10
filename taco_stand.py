@@ -1,8 +1,3 @@
-"""
-ASSIGNMENT 9B: SPRINT 2 - FUNCTIONAL STUBS
-Project: Taco Stand Ordering System
-"""
-
 MENU_ITEMS = (
     "Tacos Al Pastor",
     "Tacos de Lengua",
@@ -12,43 +7,51 @@ MENU_ITEMS = (
 )
 
 
-def login():
-    """Gets customer information."""
-    pass
+
+import datetime
 
 
-def past_orders(customer):
-    """Checks for previous orders."""
-    pass
+def save_order(order, customer):
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    with open("order_history.txt", "a") as file:
+        file.write(f"{current_time},{customer},{order}\n")
+
+    with open("receipts.txt", "a") as file:
+        file.write(f"""
+--------------------------------
+TACO STAND RECEIPT
+Customer: {customer}
+Order: {order}
+Date: {current_time}
+--------------------------------
+
+""")
 
 
-def take_order(customer):
-    """Collects taco order information."""
-    pass
-
-
-def verify_order(order):
-    """Displays order for confirmation."""
-    pass
-
-
-def save_order(order):
-    """Saves order information."""
-    pass
-
-
-def display_order(order):
-    """Displays customer receipt."""
-    pass
+def view_orders():
+    try:
+        with open("order_history.txt", "r") as file:
+            print(file.read())
+    except FileNotFoundError:
+        print("No previous orders found.")
 
 
 def main():
-    customer = login()
-    saved = past_orders(customer)
-    order = take_order(customer)
-    verify_order(order)
-    save_order(order)
-    display_order(order)
+    customer = input("Customer Name: ")
+
+    while True:
+        choice = input("Enter order, review, or quit: ").lower()
+
+        if choice == "quit":
+            break
+
+        if choice == "review":
+            view_orders()
+
+        if choice == "order":
+            item = input("Enter menu item: ")
+            save_order(item, customer)
 
 
 main()
